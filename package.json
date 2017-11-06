@@ -1,0 +1,38 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web.dev.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.19.0",
+    "webpack-dashboard": "^1.0.0",
+    "webpack-pwa-manifest": "^3.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web-bundle": "webpack --config web.prod.config.js --progress --colors",
+    "web-dev": "webpack-dev-server --content-base public/ --config web.dev.config.js --port 3001 --inline --hot --colors",
+    "clear-cache": "gulp clear-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carduelis/pwa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carduelis/pwa/issues"
+  },
+  "homepage": "https://github.com/Carduelis/pwa#readme"
+}
