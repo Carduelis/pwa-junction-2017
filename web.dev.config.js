@@ -3,11 +3,12 @@ const webpack = require("webpack");
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const manifest = require('./config/manifest');
 
 module.exports = {
 	devServer: {
 			// this is to forcing reload while index.ejs is changed
-	    contentBase: [ path.join(__dirname, "./app/index.ejs") ],
+	    contentBase: [ path.join(__dirname, "./app/index.ejs"), path.join(__dirname, "./config") ],
 	    watchContentBase: true
 	},
 	devtool: "cheap-module-eval-source-map",
@@ -39,7 +40,7 @@ module.exports = {
 						loader: "babel-loader",
 						options: {
 							// plugins: ["transform-decorators-legacy"],
-							presets: ["env"]
+							presets: ["env", "react"]
 						}
 					}
 				]
@@ -53,26 +54,11 @@ module.exports = {
 	plugins: [
 		new DashboardPlugin(),
 		new HtmlWebpackPlugin({
-			title: "[DEV] My App",
+			title: manifest.name,
 			template: path.join(__dirname, "./app/index.ejs"),
 			filename: "index.html"
 		}),
-		new WebpackPwaManifest({
-	    name: 'My Progressive Web App',
-	    short_name: 'MyPWA',
-	    description: 'My awesome Progressive Web App!',
-	    background_color: '#ffffff',
-	    icons: [
-	      {
-	        src: path.resolve('assets/icon.png'),
-	        sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-	      },
-	      {
-	        src: path.resolve('assets/large-icon.png'),
-	        size: '1024x1024' // you can also use the specifications pattern
-	      }
-	    ]
-	  }),
+		new WebpackPwaManifest(manifest),
 		new webpack.DefinePlugin({
 			"process.env": {
 				NODE_ENV: JSON.stringify("development"),
