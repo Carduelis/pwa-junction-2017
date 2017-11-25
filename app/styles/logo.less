@@ -1,0 +1,38 @@
+
+.logo-wrapper {
+	color: #fff;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	padding: 0 @pad*2 @pad*2;
+}
+@outer: @pad*5.6;
+@inner: @pad*5;
+@letter: @pad*7.2;
+
+.logo {
+	overflow: hidden;
+	flex-shrink: 0;
+	width: @outer;
+	height: @outer;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	line-height: @outer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.logo-letter {
+	width: @inner;
+	font-size: @letter;
+	overflow: hidden;
+	height: @inner;
+	border-radius: inherit;
+}
+
+.logo-text {
+	line-height: 1em;
+	text-align: left;
+	padding-left: 0.5em;
+	font-size: 1.8em;
+}

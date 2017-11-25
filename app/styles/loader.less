@@ -6,11 +6,12 @@
 	right: 0;
 }
 .preloader-spin {
-	@size: @pad*4;
+	@size: @pad*5;
 	position: absolute;
 	width: @size;
 	height: @size;
 	margin-left: -@size/2;
+	margin-top: -@size/2;
 	left: 50%;
 	top: 50%;
 	z-index: 2;
@@ -33,7 +34,7 @@
 }
 .preloader-spin:before {
 	animation: PreloaderSpin 1.5s linear infinite;
-	border-top-color: @palette-Teal-500;
+	border-top-color: @palette-Yellow-500;
 	top: @pad*@scale1;
 	right: @pad*@scale1;
 	left: @pad*@scale1;
