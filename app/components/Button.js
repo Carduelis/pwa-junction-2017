@@ -30,20 +30,37 @@ export default class Button extends Component {
     if (props.styles) {
       props.styles.map(classPart => className.push(classPart));
     }
+		if (props.href) {
+			return (
+				<a
+					className={className.getClass()}
+					onClick={props.handleClick}
+					href={props.href}
+					{...attrs}
+				>
+					<Ink />
+					{props.icon}
+					{props.loading && <span className="loading-bar" />}
+					{props.label && <span className="label">{props.label}</span>}
+					{props.children}
+				</a>
+			);
+		} else {
 
-    return (
-      <button
-        className={className.getClass()}
-        onClick={props.handleClick}
-        type={htmlType}
-        {...attrs}
-      >
-        <Ink />
-        {props.icon}
-        {props.loading && <span className="loading-bar" />}
-        {props.label && <span className="label">{props.label}</span>}
-        {props.children}
-      </button>
-    );
+			return (
+				<button
+				className={className.getClass()}
+				onClick={props.handleClick}
+				type={htmlType}
+				{...attrs}
+				>
+				<Ink />
+				{props.icon}
+				{props.loading && <span className="loading-bar" />}
+				{props.label && <span className="label">{props.label}</span>}
+				{props.children}
+				</button>
+			);
+		}
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GOOGLE_API_KEY } from  '../constants';
+import { GOOGLE_API_KEY, BACKEND_ROOT } from  '../constants';
 import Loader from '../components/Loader';
 import Input from '../components/Input';
 import CitySearch from './CitySearch';
@@ -13,13 +13,19 @@ class LoginPage extends Component {
 			label: 'Continue via Spotify',
 			size: 'lg',
 			styles: ['white'],
-			handleClick: (e) => {
-				alert('Auth action')
-			}
+			href: `${BACKEND_ROOT}login?city=AWS`,
+			// handleClick: (e) => {
+			// 	alert('Auth action')
+			// }
 		}
 		const inputProps = {
 			type: 'text',
-			placeholder: 'Type your city here'
+			attrs: {
+				// onChange: (e) => {
+				// 	console.log(e);
+				// },
+			},
+			placeholder: 'Helsinki'
 		}
 		console.log(this.props);
     return (
