@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BandsList from './BandsList';
-
+import Header from './Header';
 class BandsListPage extends Component {
   render() {
     return (
