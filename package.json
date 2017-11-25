@@ -5,6 +5,7 @@
   "main": "web.dev.config.js",
   "dependencies": {
     "axios": "^0.17.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "gapi": "0.0.3",
     "google-places": "0.0.2",
     "react": "^16.1.0",
@@ -43,7 +44,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "web-bundle": "webpack --config web.prod.config.js --progress --colors",
-    "web-dev": "webpack-dev-server --content-base public/ --config web.dev.config.js --port 3107 --inline --hot --host 10.100.38.250 --colors",
+    "web-dev": "webpack-dev-server --content-base public/ --config web.dev.config.js --port 3107 --inline --hot --host 127.0.0.1 --colors",
     "clear-cache": "gulp clear-cache"
   },
   "repository": {
