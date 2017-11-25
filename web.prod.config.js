@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const manifest = require('./config/manifest');
 
 const extractLess = new ExtractTextPlugin({
     filename: '[name].css?[id]_[contenthash]',
@@ -10,12 +12,13 @@ const extractLess = new ExtractTextPlugin({
 
 module.exports = {
   entry: [
+    "babel-polyfill",
     path.join(__dirname, './app/index'),
   ],
   output: {
     path: path.join(__dirname, './public/'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: './',
   },
   module: {
     rules: [
@@ -24,38 +27,23 @@ module.exports = {
         test: /\.less$/,
         use: extractLess.extract({
           use: [
-            {
-              loader: 'css-loader',
-              options: {
-                browsers: 'last 2 version',
-                minimize: true
-              }
-            },
-            { loader: 'less-loader' }
+            // "style-loader",
+            "css-loader?sourceMap",
+            "less-loader?sourceMap"
           ]
         })
-        // use: [
-        //   'style-loader',
-        //   'css-loader',
-        //   {
-        //     loader: 'autoprefixer-loader',
-        //     options: {
-        //       browsers: 'last 2 version'
-        //     }
-        //   },
-        //   'less-loader'
-        // ],
       }, {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
-
-          loader: 'babel-loader',
-          options: {
-						plugins: ["transform-decorators-legacy"],
-						presets: ["es2015", "stage-0"]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              // plugins: ["transform-decorators-legacy"],
+              presets: ["env", "react"]
+            }
           }
-        }]
+        ]
       }, {
         test: /\.json$/,
         loader: 'json-loader',
@@ -65,13 +53,14 @@ module.exports = {
   plugins: [
     extractLess,
     new HtmlWebpackPlugin({
-      title: 'My App',
+      title: manifest.name,
       template: path.join(__dirname, './app/index.ejs'),
       filename: 'index.html',
       files: {
         css: ['main.css'],
       }
     }),
+    new WebpackPwaManifest(manifest),
     new webpack.DefinePlugin({
       'process.env': {
         // Useful to reduce the size of client-side libraries, e.g. react
