@@ -1,2 +1,6 @@
 node_modules
-public
+public/index.html
+public/main.css
+public/manifest*
+public/icon*
+public/bundle.js

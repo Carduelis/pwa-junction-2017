@@ -4,8 +4,7 @@ import Input from '../components/Input';
 class CitySearch extends Component {
 	componentDidMount() {
 		console.log(this.textInput);
-		var autocomplete = new google.maps.places.Autocomplete(this.textInput);
-		console.log(autocomplete);
+		window['autocomplete'] = new google.maps.places.Autocomplete(this.textInput);	
 	}
 	render() {
     const { props } = this;
