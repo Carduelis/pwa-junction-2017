@@ -1,3 +1,8 @@
 export default {
-  data: ['Default state']
+  data: {
+		bands: {}
+	},
+	ui: {
+		loggedIn: false
+	}
 }

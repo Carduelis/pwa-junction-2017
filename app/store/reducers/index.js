@@ -1,16 +1,8 @@
 import { combineReducers } from 'redux';
-
-const reducerThatNeedsToBeReplaced = function(state = {}, action) {
-	const { type, payload = {} } = action;
-	switch (type) {
-		case 'ADD_FORM': {
-      return Object.assign({}, state);
-    }
-  }
-  return state;
-}
+import uiReducer from './uiReducer';
+import mainDataReducer from './mainDataReducer';
 
 export default combineReducers({
-	data: reducerThatNeedsToBeReplaced
-	// counter
+	data: mainDataReducer,
+	ui: uiReducer
 });

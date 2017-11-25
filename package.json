@@ -4,10 +4,21 @@
   "description": "",
   "main": "web.dev.config.js",
   "dependencies": {
+    "axios": "^0.17.1",
+    "gapi": "0.0.3",
+    "google-places": "0.0.2",
     "react": "^16.1.0",
+    "react-autosuggest": "^9.3.2",
     "react-dom": "^16.1.0",
+    "react-google-autocomplete": "^1.0.15",
+    "react-google-maps": "^9.4.0",
+    "react-icons": "^2.2.7",
+    "react-ink": "^6.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -32,7 +43,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "web-bundle": "webpack --config web.prod.config.js --progress --colors",
-    "web-dev": "webpack-dev-server --content-base public/ --config web.dev.config.js --port 3001 --inline --hot --colors",
+    "web-dev": "webpack-dev-server --content-base public/ --config web.dev.config.js --port 3107 --inline --hot --host 10.100.38.250 --colors",
     "clear-cache": "gulp clear-cache"
   },
   "repository": {

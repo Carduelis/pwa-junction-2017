@@ -1,0 +1,153 @@
+.btn {
+  padding: @pad/2 @pad;
+  // padding-top: .38em;
+  // padding-bottom: .42em;
+	display: inline-block;
+  text-decoration: none;
+  color: @base;
+  border: none;
+  background-color: transparent;
+  border-radius: @pad/4;
+  cursor: pointer;
+  line-height: 1.2em;
+  position: relative;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  transition: all 300ms;
+  &-bordered {
+    border: 1px solid;
+  }
+  &:hover {
+    box-shadow: inset 0 0 @pad*3 -@pad;
+  }
+  &-circle {
+    @size: @pad + 1.2em;
+    padding-left: @pad/4;
+    padding-right: @pad/4;
+    border-radius: @size;
+    // height: @size;
+    width: @size;
+  }
+  &-loading {
+    .label {
+      transform: scale(.5);
+      transform-origin: 100% 100%;
+    }
+  }
+  .loading-label {
+    position: absolute;
+  }
+  .loading-bar {
+    .position(absolute, 50%, @pad/2, auto, @pad/2);
+    height: 4px;
+    border-radius: 2px;
+    margin-top: -6px;
+    background: rgba(255,255,255,.5);
+    &::before {
+      .position(absolute, 0, 40%, 0, 40%);
+      border-radius: inherit;
+      background: inherit;
+      display: block;
+      content: '';
+      animation-name: leftToRight;
+      animation-timing-function: linear;
+      animation-duration: .3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    &::after {
+
+    }
+  }
+  span {
+    display: inline-block;
+    transition: 300ms all;
+  }
+  svg {
+    margin: -.15em .4em 0 -.4em;
+    &:last-of-type {
+      margin: 0;
+      // margin-top: -.15em;
+    }
+  }
+	&-icon {
+		text-align: center;
+		svg {
+			font-size: 3em;
+		}
+		span {
+			display: block;
+		}
+	}
+  &-fill {
+    color: #fff;
+    background-color: @base;
+  }
+	&-white {
+		background-color: #fff;
+		color: @base;
+	}
+  &:focus {
+
+  }
+  &:active {
+    // box-shadow: inset 0 2px 2px rgba(0,0,0,.2), inset 0 0 1px rgba(0,0,0,.2);
+  }
+  &.loading {
+
+  }
+  &-success {
+    color: @success;
+    &.btn-fill {
+      color: #fff;
+      background-color: @success;
+    }
+  }
+  &-accent {
+    color: @accent;
+    &.btn-fill {
+      color: #fff;
+      background-color: @accent;
+    }
+  }
+	&-primary {
+		color: @text-base;
+		&.btn-fill {
+			color: #fff;
+			background-color: @text-base;
+		}
+	}
+  &-danger {
+    color: @danger;
+    &.btn-fill {
+      color: #fff;
+      background-color: @danger;
+    }
+  }
+  &-warning {
+    color: @warning;
+    &.btn-fill {
+      color: #fff;
+      background-color: @warning;
+    }
+  }
+  &-lg {
+    padding: @pad @pad*1.5;
+    svg {
+      margin: -.15em .6em 0 -.6em;
+    }
+  }
+  &-sm {
+    padding: @pad/4 @pad/2;
+    .small;
+    svg {
+      margin: -.15em .2em 0 -.2em;
+    }
+  }
+}
+.btn {
+	.arrow {
+		font-size: 1.5em;
+		margin-left: 0.5em;
+		margin-right: -0.25em;
+	}
+}
