@@ -179,6 +179,10 @@
 .artist-cover {
 	width: @cover;
 	height: @cover;
+	@media (max-width: 360px) {
+		width: @pad*3;
+		height: @pad*3;
+	}
 	flex-shrink: 0;
 	margin-right: @pad;
 	border-radius: 4px;
@@ -206,6 +210,10 @@
 }
 .consert-name {
 	font-size: 1.2em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: calc(100% - @pad);
 }
 
 .consert-date {
@@ -221,7 +229,24 @@
 	}
 }
 
-
+.flights {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@media (max-width: 376px) {
+		font-size: 0.85em;
+	}
+	.bound {
+		padding: 0 @pad/2;
+	}
+	.airport {
+		// display: none;
+		font-weight: bold;
+	}
+	.flight-number {
+		display: block;
+	}
+}
 .sorting {
 	color: #fff;
 	margin-bottom: -@pad;

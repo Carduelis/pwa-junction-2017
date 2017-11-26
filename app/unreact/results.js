@@ -2,6 +2,6 @@
 
 import fetchTickets from './fetchTickets';
 
-export default function(searchQuery) {
-	fetchTickets({ sorting: false });
+export default function(request_id) {
+	fetchTickets({ sorting: false, request_id });
 }

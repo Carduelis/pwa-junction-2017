@@ -1,9 +1,10 @@
 const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 export default function(item, i) {
-	const cover = '//placecage.com/300/30'+i;
-	const dateStart = new Date().toLocaleDateString('en-GB', dateOptions);
-	const tomorrow = new Date().getTime() + 1000*60*60*24;
-	const dateEnd = new Date(tomorrow).toLocaleDateString('en-GB', dateOptions);
+	const { artist, event, price, trip } = item;
+	const { inbound, outbound } = trip.flights;
+	const eventDate = new Date(event.date*1000);
+	const dateStart = new Date(outbound.departure_time*1000).toLocaleDateString('en-GB', dateOptions);
+	const dateEnd = new Date(inbound.arrival_time*1000).toLocaleDateString('en-GB', dateOptions);
 		return `
 			<div class="card ticket translated">
 				<div class="preview-data">
@@ -14,28 +15,28 @@ export default function(item, i) {
 							<span></span>
 						</div>
 						<div class="title">
-							Red Hot Chilly Peppers  ${item.id}
+							${artist.name}
 						</div>
 						<div class="price">
-							<span>€&thinsp;</span>757
+							<span>€&thinsp;</span>${Math.floor(price)}
 						</div>
 					</div>
 					<div class="ticket-subheader">
 						<div class="city">
-							Moscow, Russia
+							${event.destination}
 						</div>
 						<div class="dates">
-							Tomorrow
+							${dateStart}
 						</div>
 					</div>
 				</div>
 				<div class="additional-data">
 					<div class="concert-info">
-						<div class="artist-cover" style="background-image: url('${cover}');">
+						<div class="artist-cover" style="background-image: url('${artist.photo_url}');">
 						</div>
 						<div class="consert-info">
 							<div class="consert-name">
-								Junction 2017
+								${event.name}
 							</div>
 							<div class="consert-date">
 								<div class="date start">
@@ -50,11 +51,28 @@ export default function(item, i) {
 						</div>
 					</div>
 					<div class="btn-bar">
-						<button class="btn btn-lg btn-share" type="button">Invite a friend</button>
-						<button class="btn btn-purple btn-lg btn-fill btn-book" type="button">Book now! &rarr;</button>
+						<div class="flights">
+							<div class="inbound">
+								<span class="airport">
+									${inbound.departure_airport}
+								</span>
+								<span class="flight-number">
+									${inbound.flight_number}
+								</span>
+							</div>
+							<div class="bound">&rarr;</div>
+							<div class="outbound">
+								<span class="airport">
+									${outbound.departure_airport}
+								</span>
+
+								<span class="flight-number">
+									${outbound.flight_number}
+								</span>
+							</div>
+						</div>
+						<a href="${trip.redirect_url}" class="btn btn-purple btn-lg btn-fill btn-book" >Book now! &rarr;</a>
 					</div>
-				</div>
-				<div class="background">
 				</div>
 			</div>
 		`;

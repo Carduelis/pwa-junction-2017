@@ -1,6 +1,12 @@
 // get the page ready
 * { outline: none; box-sizing: border-box; }
 @pad: 1rem;
+html {
+
+	@media (max-width: 360px) {
+		font-size: 14px;
+	}
+}
 body { padding: 0; margin: 0; }
 body, button, input {
   font-family: 'PT Sans', "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
@@ -90,4 +96,4 @@ min-height: 100vh;
 @import "pages/login.less";
 @import "pages/bands.less";
 @import "pages/results.less";
-@import "pages/processing.less"; 
+@import "pages/processing.less";

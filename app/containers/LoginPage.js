@@ -30,7 +30,8 @@ class LoginPage extends Component {
 						lng = place.geometry.location.lng();
 					}
 				}
-				const href = `${BACKEND_ROOT}login?city=testing&lat=${lat}&long=${lng}`;
+				// const href = `${BACKEND_ROOT}login?city=testing&lat=${lat}&long=${lng}`;
+				const href = `/login?city=testing&lat=${lat}&long=${lng}`;
 				window.location.href = href;
 
 			}
