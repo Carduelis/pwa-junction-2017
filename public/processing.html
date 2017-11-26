@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+    <title>Progressive Web App</title>
+    <meta name="theme-color" content="#455A64" />
+    <link rel="manifest" href="./manifest.b992a4493d3ea2b05d73b5be72d0700a.json" />
+    <link href="./main.css" rel="stylesheet">
+  </head>
+  <body>
+		<div id="root">
+      <h1 class="results-title">We are fetching the best concert trips for you!</h1>
+			<div class="page-processing wrapper">
+        <div class="steps">
+          <div class="card progress-artists">
+            <div class="circle-loader">
+              <div class="checkmark draw"></div>
+            </div>
+            <h2>Fetching artists</h2>
+          </div>
+          <div class="card progress-concerts">
+            <div class="circle-loader">
+              <div class="checkmark draw"></div>
+            </div>
+            <h2>Fetching concerts</h2>
+          </div>
+          <div class="card progress-flights">
+            <div class="circle-loader">
+              <div class="checkmark draw"></div>
+            </div>
+            <h2>Fetching flights</h2>
+          </div> 
+        </div>
+			</div>
+		</div>
+    <script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./processing.js"></script>
+
+  </body>
+</html>
