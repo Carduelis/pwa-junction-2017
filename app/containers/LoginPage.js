@@ -40,7 +40,7 @@ class LoginPage extends Component {
 			<div className="login-page">
 				<div className="logo-wrapper">
 					<div className="logo">
-						<div className="logo-letter">М
+						<div className="logo-letter">Fly
 						</div>
 					</div>
 					<div className="logo-text">

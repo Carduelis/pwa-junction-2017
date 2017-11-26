@@ -4,7 +4,6 @@ export default function asyncLoop(i, callback, delay = 1000) {
 		j = i;
 	}
 	setTimeout(function () {
-		console.log(callback);
 		if (typeof callback === 'function') {
 			callback(j-i, i);
 		}

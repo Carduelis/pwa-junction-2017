@@ -12,9 +12,7 @@ const rootElement = document.getElementById('root');
 
 const { search } = window.location;
 if (search.match('request_id')) {
-	setTimeout(function(){
-		results(rootElement);
-	}, 1000);
+	results(rootElement);
 } else {
 	const JSONP_CALLBACK_NAME = 'initAutocomplete';
 	const googleURL = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places&callback=${JSONP_CALLBACK_NAME}`;
